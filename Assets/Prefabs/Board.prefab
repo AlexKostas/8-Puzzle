@@ -114,5 +114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e4a9571656c074c97f8b934b4dbabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   tileButton: {fileID: 1022579280745277145, guid: 65fed506e0368fa4896505b2b0929fd1, type: 3}
   buttonsParent: {fileID: 491888785135064835}
