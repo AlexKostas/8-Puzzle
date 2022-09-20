@@ -6,8 +6,11 @@ public class GameManager : MonoBehaviour {
     
     [SerializeField] private int boardDimensions;
     [SerializeField] private UIController controller;
+    [SerializeField] private AudioClip failSound;
+    [SerializeField] private AudioClip tileMovedSound;
 
     private Board board;
+    private AudioSource audioSource;
 
     private void Awake() {
         if (instance == null) instance = this;
@@ -20,10 +23,19 @@ public class GameManager : MonoBehaviour {
         controller.gameManager = this;
         controller.SetupUI(boardDimensions*boardDimensions);
         controller.UpdateBoardUI(board);
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void OnButtonClicked(int buttonIndex) {
-        board.OnTileClicked(buttonIndex);
-        controller.UpdateBoardUI(board);
+        bool status = board.OnTileClicked(buttonIndex);
+        
+        // If the tile moved
+        if (status) {
+            controller.UpdateBoardUI(board);
+            audioSource.PlayOneShot(tileMovedSound);
+        }
+        else 
+            audioSource.PlayOneShot(failSound);
     }
 }

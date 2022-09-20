@@ -26,7 +26,8 @@ public class Board {
         return boardList[tileIndex];
     }
 
-    public void OnTileClicked(int tileIndex) {
+    // Returns true if the tile clicked can move otherwise returns false
+    public bool OnTileClicked(int tileIndex) {
         Debug.Assert(tileIndex >= 0);
         Debug.Assert(tileIndex < numberOfTiles);
         
@@ -42,10 +43,11 @@ public class Board {
         int manhattanDistance = Utils.ManhattanDistance(column, emptyTileColumn, row, emptyTileRow);
         Debug.Assert(manhattanDistance >= 1);
 
-        if (manhattanDistance != 1) return;
+        if (manhattanDistance > 1) return false;
 
         // Swapping value via deconstruction
         (boardList[tileIndex], boardList[emptyTileIndex]) = (boardList[emptyTileIndex], boardList[tileIndex]);
+        return true;
     }
 
     public int GetNumberOfTiles() {
