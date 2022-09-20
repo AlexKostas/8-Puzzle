@@ -3,19 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class UIController : MonoBehaviour {
+    
+    
+    [HideInInspector] public GameManager gameManager;
+    
     [SerializeField] private GameObject tileButton;
     [SerializeField] private GameObject buttonsParent;
 
     private int numberOfTiles;
     private int lastDisabledButtonIndex;
-    private readonly List<ButtonController> buttons = new List<ButtonController>();
+    private readonly List<ButtonController> buttons = new();
 
     public void SetupUI(int tilesCount) {
         numberOfTiles = tilesCount;
 
         for (int i = 0; i < numberOfTiles; i++) {
             var newButton = Instantiate(tileButton, buttonsParent.transform, true);
-            newButton.GetComponent<ButtonController>().SetupButton(i+1);
+            newButton.GetComponent<ButtonController>().SetupButton(i+1, i);
             buttons.Add(newButton.GetComponent<ButtonController>());
         }
         
@@ -29,11 +33,11 @@ public class UIController : MonoBehaviour {
             
             buttons[i].ChangeButtonNumber(tileValue);
 
-            if (tileValue == 0) { 
-                buttons[lastDisabledButtonIndex].EnableButton();
-                buttons[i].DisableButton();
-                lastDisabledButtonIndex = i;
-            }
+            if (tileValue != 0) continue;
+            
+            buttons[lastDisabledButtonIndex].EnableButton();
+            buttons[i].DisableButton();
+            lastDisabledButtonIndex = i;
         }
     }
 }

@@ -23,8 +23,29 @@ public class Board {
         Debug.Assert(tileIndex >= 0);
         Debug.Assert(tileIndex < numberOfTiles);
 
-
         return boardList[tileIndex];
+    }
+
+    public void OnTileClicked(int tileIndex) {
+        Debug.Assert(tileIndex >= 0);
+        Debug.Assert(tileIndex < numberOfTiles);
+        
+        int row = tileIndex / 3;
+        int column = tileIndex % 3;
+
+        int emptyTileIndex = findEmptyTile();
+        Debug.Assert(emptyTileIndex >= 0 && emptyTileIndex < numberOfTiles);
+
+        int emptyTileRow = emptyTileIndex / 3;
+        int emptyTileColumn = emptyTileIndex % 3;
+
+        int manhattanDistance = Utils.ManhattanDistance(column, emptyTileColumn, row, emptyTileRow);
+        Debug.Assert(manhattanDistance >= 1);
+
+        if (manhattanDistance != 1) return;
+
+        // Swapping value via deconstruction
+        (boardList[tileIndex], boardList[emptyTileIndex]) = (boardList[emptyTileIndex], boardList[tileIndex]);
     }
 
     public int GetNumberOfTiles() {
@@ -38,5 +59,12 @@ public class Board {
         Debug.Assert(col < dimension);
 
         return row * dimension + col;
+    }
+
+    private int findEmptyTile() {
+        for (int i = 0; i < boardList.Count; i++) 
+            if (boardList[i] == 0) return i;
+
+        return -1;
     }
 }
