@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Board {
@@ -17,6 +18,8 @@ public class Board {
             boardList.Add(i+1);
 
         boardList.Add(0);
+        
+        shuffleTileOrder();
     }
 
     public int GetTileValue(int tileIndex) {
@@ -68,5 +71,15 @@ public class Board {
             if (boardList[i] == 0) return i;
 
         return -1;
+    }
+
+    private void shuffleTileOrder() {
+        var randomNumberGenerator = new System.Random();
+        int n = boardList.Count;  
+        while (n > 1) {  
+            n--;  
+            int k = randomNumberGenerator.Next(n + 1);  
+            (boardList[k], boardList[n]) = (boardList[n], boardList[k]);
+        }  
     }
 }
