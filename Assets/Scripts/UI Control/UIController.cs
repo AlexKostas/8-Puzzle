@@ -8,11 +8,7 @@ public class UIController : MonoBehaviour {
 
     private int numberOfTiles;
     private int lastDisabledButtonIndex;
-    private List<ButtonController> buttons = new List<ButtonController>();
-
-    private void Start() {
-        SetupUI(9);
-    }
+    private readonly List<ButtonController> buttons = new List<ButtonController>();
 
     public void SetupUI(int tilesCount) {
         numberOfTiles = tilesCount;
@@ -27,7 +23,17 @@ public class UIController : MonoBehaviour {
         lastDisabledButtonIndex = numberOfTiles - 1;
     }
     
-    public void UpdateBoardUI() {
-        
+    public void UpdateBoardUI(Board board) {
+        for (int i = 0; i < board.GetNumberOfTiles(); i++) {
+            int tileValue = board.GetTileValue(i);
+            
+            buttons[i].ChangeButtonNumber(tileValue);
+
+            if (tileValue == 0) { 
+                buttons[lastDisabledButtonIndex].EnableButton();
+                buttons[i].DisableButton();
+                lastDisabledButtonIndex = i;
+            }
+        }
     }
 }
