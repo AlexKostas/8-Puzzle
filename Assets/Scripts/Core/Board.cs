@@ -19,7 +19,7 @@ public class Board {
 
         boardList.Add(0);
         
-        shuffleTileOrder();
+        ShuffleTileOrder();
     }
 
     public int GetTileValue(int tileIndex) {
@@ -57,6 +57,16 @@ public class Board {
         return numberOfTiles;
     }
 
+    public void ShuffleTileOrder() {
+        var randomNumberGenerator = new System.Random();
+        int n = boardList.Count;  
+        while (n > 1) {  
+            n--;  
+            int k = randomNumberGenerator.Next(n + 1);  
+            (boardList[k], boardList[n]) = (boardList[n], boardList[k]);
+        }  
+    }
+    
     private int matchCoordinatesToInternalIndex(int row, int col) {
         Debug.Assert(row >= 0);
         Debug.Assert(row < dimension);
@@ -71,15 +81,5 @@ public class Board {
             if (boardList[i] == 0) return i;
 
         return -1;
-    }
-
-    private void shuffleTileOrder() {
-        var randomNumberGenerator = new System.Random();
-        int n = boardList.Count;  
-        while (n > 1) {  
-            n--;  
-            int k = randomNumberGenerator.Next(n + 1);  
-            (boardList[k], boardList[n]) = (boardList[n], boardList[k]);
-        }  
     }
 }

@@ -38,4 +38,10 @@ public class GameManager : MonoBehaviour {
         else 
             audioSource.PlayOneShot(failSound);
     }
+
+    public void OnShuffleButtonClicked() {
+        board.ShuffleTileOrder();
+        audioSource.PlayOneShot(tileMovedSound);
+        controller.UpdateBoardUI(board);
+    }
 }
