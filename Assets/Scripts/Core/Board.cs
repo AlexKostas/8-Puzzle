@@ -40,7 +40,7 @@ public class Board {
         int row = tileIndex / 3;
         int column = tileIndex % 3;
 
-        int emptyTileIndex = findEmptyTile();
+        int emptyTileIndex = FindTile(0);
         Debug.Assert(emptyTileIndex >= 0 && emptyTileIndex < numberOfTiles);
 
         int emptyTileRow = emptyTileIndex / 3;
@@ -57,7 +57,7 @@ public class Board {
     }
 
     public List<Board> GetSuccessorStates() {
-        int emptyTileIndex = findEmptyTile();
+        int emptyTileIndex = FindTile(0);
         Debug.Assert(emptyTileIndex >= 0);
         List<Board> successors = new List<Board>();
 
@@ -114,8 +114,19 @@ public class Board {
         return evaluation;
     }
 
+    public int GetNumberOfMoves() {
+        return movesHistory.Count;
+    }
+
     public List<Move> GetMovesHistory() {
         return movesHistory;
+    }
+    
+    public int FindTile(int tileValue) {
+        for (int i = 0; i < boardList.Count; i++) 
+            if (boardList[i] == tileValue) return i;
+
+        return -1;
     }
 
     private static Board cloneBoard(Board referenceBoard) {
@@ -137,12 +148,5 @@ public class Board {
         Debug.Assert(col < dimension);
 
         return row * dimension + col;
-    }
-
-    private int findEmptyTile() {
-        for (int i = 0; i < boardList.Count; i++) 
-            if (boardList[i] == 0) return i;
-
-        return -1;
     }
 }
