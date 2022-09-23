@@ -49,6 +49,8 @@
      <Compile Include="Assets\Scripts\Core\AI.cs" />
      <Compile Include="Assets\Scripts\Core\IEvaluate.cs" />
      <Compile Include="Assets\Scripts\Core\Move.cs" />
+     <Compile Include="Assets\Scripts\Core\ManhattanDistanceEvaluation.cs" />
+     <Compile Include="Assets\Scripts\Core\HammingDistanceEvaluation.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
