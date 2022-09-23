@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Board {
     private readonly int numberOfTiles;
     private readonly int dimension;
+    private int evaluation;
     private readonly List<int> boardList;
+    private readonly List<Move> movesHistory;
 
     public Board(int dimensions) {
         Debug.Assert(dimensions >= 2);
@@ -18,6 +19,8 @@ public class Board {
             boardList.Add(i+1);
 
         boardList.Add(0);
+
+        movesHistory = new List<Move>();
         
         ShuffleTileOrder();
     }
@@ -74,20 +77,14 @@ public class Board {
             // Swapping value via deconstruction
             (newBoard.boardList[i], newBoard.boardList[emptyTileIndex]) = 
                 (newBoard.boardList[emptyTileIndex], newBoard.boardList[i]);
+
+            Move newMove = new Move(emptyTileIndex, i);
+            newBoard.addMoveInHistory(newMove);
             
             successors.Add(newBoard);
         }
 
         return successors;
-    }
-
-    private static Board cloneBoard(Board referenceBoard) {
-        Board newBoard = new Board(referenceBoard.dimension);
-
-        for (int i = 0; i < referenceBoard.numberOfTiles; i++) 
-            newBoard.boardList[i] = referenceBoard.boardList[i];
-        
-        return newBoard;
     }
 
     public int GetNumberOfTiles() {
@@ -102,6 +99,35 @@ public class Board {
             int k = randomNumberGenerator.Next(n + 1);  
             (boardList[k], boardList[n]) = (boardList[n], boardList[k]);
         }  
+    }
+
+    private void addMoveInHistory(Move move) {
+        Debug.Assert(move != null);
+        movesHistory.Add(move);
+    }
+
+    public void EvaluateState(IEvaluate evaluationFunction, Board targetState) {
+        evaluation = evaluationFunction.EvaluateState(this, targetState);
+    }
+
+    public int GetEvaluation() {
+        return evaluation;
+    }
+
+    public List<Move> GetMovesHistory() {
+        return movesHistory;
+    }
+
+    private static Board cloneBoard(Board referenceBoard) {
+        Board newBoard = new Board(referenceBoard.dimension);
+
+        for (int i = 0; i < referenceBoard.numberOfTiles; i++) 
+            newBoard.boardList[i] = referenceBoard.boardList[i];
+
+        foreach (Move move in referenceBoard.movesHistory) 
+            newBoard.addMoveInHistory(move);
+
+        return newBoard;
     }
     
     private int matchCoordinatesToInternalIndex(int row, int col) {
