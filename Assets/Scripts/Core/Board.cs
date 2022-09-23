@@ -53,6 +53,43 @@ public class Board {
         return true;
     }
 
+    public List<Board> GetSuccessorStates() {
+        int emptyTileIndex = findEmptyTile();
+        Debug.Assert(emptyTileIndex >= 0);
+        List<Board> successors = new List<Board>();
+
+        for (int i = 0; i < numberOfTiles; i++) {
+            if(i == emptyTileIndex) continue;
+            
+            int row = i / 3;
+            int column = i % 3;
+            
+            int emptyTileRow = emptyTileIndex / 3;
+            int emptyTileColumn = emptyTileIndex % 3;
+            
+            if(Utils.ManhattanDistance(column, emptyTileColumn, row, emptyTileRow) > 1) continue;
+
+            Board newBoard = cloneBoard(this);
+            
+            // Swapping value via deconstruction
+            (newBoard.boardList[i], newBoard.boardList[emptyTileIndex]) = 
+                (newBoard.boardList[emptyTileIndex], newBoard.boardList[i]);
+            
+            successors.Add(newBoard);
+        }
+
+        return successors;
+    }
+
+    private static Board cloneBoard(Board referenceBoard) {
+        Board newBoard = new Board(referenceBoard.dimension);
+
+        for (int i = 0; i < referenceBoard.numberOfTiles; i++) 
+            newBoard.boardList[i] = referenceBoard.boardList[i];
+        
+        return newBoard;
+    }
+
     public int GetNumberOfTiles() {
         return numberOfTiles;
     }
