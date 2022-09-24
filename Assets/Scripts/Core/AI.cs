@@ -51,6 +51,8 @@ public static class AI {
         
         // Immediately after the loop's exit we know that 'currentState' contains the targetState along with the history
         // of how it was reached
-        return currentBoard.GetMovesHistory();
+        List<Move> moves = currentBoard.GetMovesHistory();
+        if(moves != null) return currentBoard.GetMovesHistory();
+        return new List<Move>();
     }
 }

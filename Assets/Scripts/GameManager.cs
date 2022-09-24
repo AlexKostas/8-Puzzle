@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private AudioClip tileMovedSound;
 
     private Board board;
+    private Board targetState;
     private AudioSource audioSource;
 
     private void Awake() {
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour {
 
     private void Start() {
         board = new Board(boardDimensions);
+        targetState = new Board(boardDimensions, false);
 
         controller.gameManager = this;
         controller.SetupUI(boardDimensions*boardDimensions);
@@ -49,10 +51,24 @@ public class GameManager : MonoBehaviour {
     }
 
     public void OnSolveButtonClicked() {
-        Board targetState = new Board(boardDimensions, false);
         try {
             var moves = AI.SolvePuzzle(board, targetState, new ManhattanDistanceEvaluation());
             StartCoroutine(displayMoves(moves));
+        }
+        catch (ApplicationException) {
+            audioSource.PlayOneShot(failSound);
+        }
+    }
+
+    public void OnGetMoveButtonClicked() {
+        try {
+            var moves = AI.SolvePuzzle(board, targetState, new ManhattanDistanceEvaluation());
+            if (moves.Count <= 0) return;
+            
+            board.ExecuteMove(moves[0]);
+            
+            audioSource.PlayOneShot(tileMovedSound);
+            controller.UpdateBoardUI(board);
         }
         catch (ApplicationException) {
             audioSource.PlayOneShot(failSound);
