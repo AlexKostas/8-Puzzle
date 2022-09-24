@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private float moveDelay = 1.0f;
     [SerializeField] private UIController controller;
     [SerializeField] private TextMeshProUGUI movesLabel;
+    [SerializeField] private TMP_Dropdown dropdown;
     [SerializeField] private AudioClip failSound;
     [SerializeField] private AudioClip tileMovedSound;
 
@@ -102,11 +103,12 @@ public class GameManager : MonoBehaviour {
         Application.Quit();
     }
 
-    public void OnSelectionValueChanged(int value) {
+    public void OnSelectionValueChanged() {
+        int value = dropdown.value;
         Debug.Assert(value is >= 0 and <= 1 );
 
         if (value == 0) selectedEvaluationFunction = manhattanDistanceEval;
-        else selectedEvaluationFunction = hammingDistanceEval;
+        else  selectedEvaluationFunction = hammingDistanceEval;
     }
 
     private IEnumerator displayMoves(List<Move> moves) {
