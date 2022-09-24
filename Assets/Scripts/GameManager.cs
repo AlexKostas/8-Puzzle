@@ -28,7 +28,6 @@ public class GameManager : MonoBehaviour {
         board = new Board(boardDimensions);
         targetState = new Board(boardDimensions, false);
 
-        controller.gameManager = this;
         controller.SetupUI(boardDimensions*boardDimensions);
         controller.UpdateBoardUI(board);
         resetMovesLabel();
