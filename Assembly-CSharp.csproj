@@ -311,11 +311,11 @@
      <Reference Include="Unity.Burst.Unsafe">
      <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.Unsafe.dll</HintPath>
      </Reference>
-     <Reference Include="PriorityQueue">
-     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Assets\Plugins\PriorityQueue.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.Burst.Cecil.Mdb">
      <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Mdb.dll</HintPath>
+     </Reference>
+     <Reference Include="PriorityQueue">
+     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Assets\Plugins\PriorityQueue.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Cecil.Pdb">
      <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Pdb.dll</HintPath>
@@ -698,15 +698,6 @@
      <Reference Include="System.Xml.Serialization">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.10f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.VisualScripting.Flow.Editor">
-     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.2D.Tilemap.Extras">
-     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.2D.Animation.Editor">
-     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.2D.Animation.Editor.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.InternalAPIEngineBridge.001">
      <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.InternalAPIEngineBridge.001.dll</HintPath>
      </Reference>
@@ -716,14 +707,59 @@
      <Reference Include="Unity.2D.PixelPerfect">
      <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.2D.PixelPerfect.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.2D.Tilemap.Editor">
-     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll</HintPath>
-     </Reference>
      <Reference Include="PsdPlugin">
      <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\PsdPlugin.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro.Editor">
      <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualScripting.State.Editor">
+     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.IK.Editor">
+     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.2D.IK.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.Path.Editor">
+     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.2D.Path.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
+     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.UI">
+     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Rider.Editor">
+     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.UI">
+     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.EditorCoroutines.Editor">
+     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.IK.Runtime">
+     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.InternalAPIEditorBridgeDev.001">
+     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.InternalAPIEditorBridgeDev.001.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Mathematics.Editor">
+     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.Common.Editor">
+     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.2D.Common.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualScripting.Flow.Editor">
+     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.Tilemap.Extras">
+     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.Animation.Editor">
+     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.2D.Animation.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.Tilemap.Editor">
+     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualStudio.Editor">
      <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
@@ -737,47 +773,29 @@
      <Reference Include="Unity.TextMeshPro">
      <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.VisualScripting.State.Editor">
-     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.Burst.Editor">
      <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.2D.IK.Editor">
-     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.2D.IK.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Sprite.Editor">
      <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.2D.Path.Editor">
-     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.2D.Path.Editor.dll</HintPath>
+     <Reference Include="Unity.2D.Psdimporter.Editor">
+     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.2D.Psdimporter.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+     <Reference Include="Unity.InternalAPIEditorBridge.001">
+     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Flow">
      <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
      </Reference>
-     <Reference Include="UnityEditor.UI">
-     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.PlasticSCM.Editor">
      <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Rider.Editor">
-     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.2D.Psdimporter.Editor">
-     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.2D.Psdimporter.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEngine.UI">
-     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Tilemap.Extras.Editor">
      <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.InternalAPIEditorBridge.001">
-     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll</HintPath>
+     <Reference Include="Unity.Play.Publisher.Editor">
+     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.Play.Publisher.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Services.Core">
      <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.Services.Core.dll</HintPath>
@@ -787,9 +805,6 @@
      </Reference>
      <Reference Include="Unity.Mathematics">
      <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.2D.IK.Runtime">
-     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Services.Core.Analytics">
      <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
@@ -812,32 +827,17 @@
      <Reference Include="Unity.Timeline.Editor">
      <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.Mathematics.Editor">
-     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.2D.Common.Runtime">
      <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.2D.Common.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.SpriteShape.Editor">
      <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.2D.SpriteShape.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.2D.Common.Editor">
-     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.2D.Common.Editor.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.2D.SpriteShape.Runtime">
      <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.State">
      <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Play.Publisher.Editor">
-     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.Play.Publisher.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.EditorCoroutines.Editor">
-     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.InternalAPIEditorBridgeDev.001">
-     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\ScriptAssemblies\Unity.InternalAPIEditorBridgeDev.001.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>

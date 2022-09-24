@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour {
     private Board board;
     private Board targetState;
     private AudioSource audioSource;
+    private bool isSolvingPuzzle = false;
     private const string defaultMovesText = "Number of moves: ";
 
     private void Awake() {
@@ -36,6 +37,8 @@ public class GameManager : MonoBehaviour {
     }
 
     public void OnButtonClicked(int buttonIndex) {
+        if (isSolvingPuzzle) return;
+
         bool status = board.OnTileClicked(buttonIndex);
         
         // If the tile moved
@@ -48,6 +51,8 @@ public class GameManager : MonoBehaviour {
     }
 
     public void OnShuffleButtonClicked() {
+        if (isSolvingPuzzle) return;
+
         board.ShuffleTileOrder();
         audioSource.PlayOneShot(tileMovedSound);
         controller.UpdateBoardUI(board);
@@ -55,6 +60,8 @@ public class GameManager : MonoBehaviour {
     }
 
     public void OnSolveButtonClicked() {
+        if (isSolvingPuzzle) return;
+
         try {
             var moves = AI.SolvePuzzle(board, targetState, new ManhattanDistanceEvaluation());
             movesLabel.SetText(defaultMovesText + moves.Count);
@@ -66,6 +73,8 @@ public class GameManager : MonoBehaviour {
     }
 
     public void OnGetMoveButtonClicked() {
+        if (isSolvingPuzzle) return;
+        
         try {
             var moves = AI.SolvePuzzle(board, targetState, new ManhattanDistanceEvaluation());
             if (moves.Count <= 0) return;
@@ -83,6 +92,7 @@ public class GameManager : MonoBehaviour {
     }
 
     private IEnumerator displayMoves(List<Move> moves) {
+        isSolvingPuzzle = true;
         while (moves.Count > 0) {
             board.ExecuteMove(moves[0]);
             moves.RemoveAt(0);
@@ -92,6 +102,8 @@ public class GameManager : MonoBehaviour {
 
             yield return new WaitForSeconds(moveDelay);
         }
+
+        isSolvingPuzzle = false;
     }
 
     private void resetMovesLabel() {
