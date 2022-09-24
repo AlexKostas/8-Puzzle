@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Priority_Queue;
 
 public static class AI {
+    private const int MAX_LOOPS = 100000;
+
     public static List<Move> SolvePuzzle(Board startingState, Board targetState, IEvaluate evaluationFunction) {
         // Initialize a priority queue with the starting state as its only element
         SimplePriorityQueue<Board> pq = new SimplePriorityQueue<Board>();
@@ -12,10 +15,16 @@ public static class AI {
         // adding the same states to the queue multiple times
         Board previousBoard = null;
         
+        // We are counting the loops to ensure the program does not crash
+        int numberOfLoops = 0;
+        
         // Remove the state with the lowest evaluation
         // (closer to target) from the Queue until we
         // reach the target state
         while (!Utils.StatesEqual(currentBoard = pq.Dequeue(), targetState)) {
+            //Exiting with an Exception after a fixed number of loops
+            if (numberOfLoops >= MAX_LOOPS) throw new Exception("Solving the puzzle failed");
+            
             // Get successor states
             List<Board> successors = currentBoard.GetSuccessorStates();
 
@@ -35,6 +44,9 @@ public static class AI {
             
             // Update previous state
             previousBoard = currentBoard;
+            
+            // Updating loop count
+            numberOfLoops++;
         }
         
         // Immediately after the loop's exit we know that 'currentState' contains the targetState along with the history

@@ -66,6 +66,7 @@
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+     <None Include="Assets\link.xml" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
@@ -319,6 +320,9 @@
      <Reference Include="Unity.Burst.Unsafe">
      <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.Unsafe.dll</HintPath>
      </Reference>
+     <Reference Include="PriorityQueue">
+     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Assets\Plugins\PriorityQueue.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.Burst.Cecil.Mdb">
      <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Mdb.dll</HintPath>
      </Reference>
@@ -336,9 +340,6 @@
      </Reference>
      <Reference Include="Newtonsoft.Json">
      <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
-     </Reference>
-     <Reference Include="PriorityQueue">
-     <HintPath>C:\Users\USER\Documents\Programming\Projects\8 Puzzle\Assets\Plugins\PriorityQueue.dll</HintPath>
      </Reference>
      <Reference Include="mscorlib">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.10f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\mscorlib.dll</HintPath>

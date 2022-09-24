@@ -2,13 +2,21 @@
 using UnityEngine;
 
 public class Board {
-    private readonly int numberOfTiles;
-    private readonly int dimension;
+    private int numberOfTiles;
+    private int dimension;
     private int evaluation;
-    private readonly List<int> boardList;
-    private readonly List<Move> movesHistory;
+    private List<int> boardList;
+    private List<Move> movesHistory;
 
     public Board(int dimensions) {
+        initializeBoard(dimensions, true);
+    }
+
+    public Board(int dimensions, bool shuffle) {
+        initializeBoard(dimensions, shuffle);
+    }
+
+    private void initializeBoard(int dimensions, bool shuffle) {
         Debug.Assert(dimensions >= 2);
         
         numberOfTiles = dimensions*dimensions;
@@ -22,9 +30,8 @@ public class Board {
 
         movesHistory = new List<Move>();
         
-        ShuffleTileOrder();
+        if(shuffle) ShuffleTileOrder();
     }
-
     public int GetTileValue(int tileIndex) {
         Debug.Assert(tileIndex >= 0);
         Debug.Assert(tileIndex < numberOfTiles);
@@ -104,6 +111,11 @@ public class Board {
     private void addMoveInHistory(Move move) {
         Debug.Assert(move != null);
         movesHistory.Add(move);
+    }
+
+    public void ExecuteMove(Move move) {
+        (boardList[move.GetFrom()], boardList[move.GetTo()]) = 
+            (boardList[move.GetTo()], boardList[move.GetFrom()]);
     }
 
     public void EvaluateState(IEvaluate evaluationFunction, Board targetState) {
