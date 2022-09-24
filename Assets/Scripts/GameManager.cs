@@ -50,8 +50,13 @@ public class GameManager : MonoBehaviour {
 
     public void OnSolveButtonClicked() {
         Board targetState = new Board(boardDimensions, false);
-        var moves = AI.SolvePuzzle(board, targetState, new ManhattanDistanceEvaluation());
-        StartCoroutine(displayMoves(moves));
+        try {
+            var moves = AI.SolvePuzzle(board, targetState, new ManhattanDistanceEvaluation());
+            StartCoroutine(displayMoves(moves));
+        }
+        catch (ApplicationException) {
+            audioSource.PlayOneShot(failSound);
+        }
     }
 
     private IEnumerator displayMoves(List<Move> moves) {

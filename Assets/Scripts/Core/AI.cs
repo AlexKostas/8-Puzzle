@@ -23,7 +23,7 @@ public static class AI {
         // reach the target state
         while (!Utils.StatesEqual(currentBoard = pq.Dequeue(), targetState)) {
             //Exiting with an Exception after a fixed number of loops
-            if (numberOfLoops >= MAX_LOOPS) throw new Exception("Solving the puzzle failed");
+            if (numberOfLoops >= MAX_LOOPS) throw new ApplicationException("Solving the puzzle failed");
             
             // Get successor states
             List<Board> successors = currentBoard.GetSuccessorStates();
