@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
@@ -9,12 +10,14 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private int boardDimensions;
     [SerializeField] private float moveDelay = 1.0f;
     [SerializeField] private UIController controller;
+    [SerializeField] private TextMeshProUGUI movesLabel;
     [SerializeField] private AudioClip failSound;
     [SerializeField] private AudioClip tileMovedSound;
 
     private Board board;
     private Board targetState;
     private AudioSource audioSource;
+    private const string defaultMovesText = "Number of moves: ";
 
     private void Awake() {
         if (instance == null) instance = this;
@@ -28,6 +31,7 @@ public class GameManager : MonoBehaviour {
         controller.gameManager = this;
         controller.SetupUI(boardDimensions*boardDimensions);
         controller.UpdateBoardUI(board);
+        resetMovesLabel();
 
         audioSource = GetComponent<AudioSource>();
     }
@@ -48,11 +52,13 @@ public class GameManager : MonoBehaviour {
         board.ShuffleTileOrder();
         audioSource.PlayOneShot(tileMovedSound);
         controller.UpdateBoardUI(board);
+        resetMovesLabel();
     }
 
     public void OnSolveButtonClicked() {
         try {
             var moves = AI.SolvePuzzle(board, targetState, new ManhattanDistanceEvaluation());
+            movesLabel.SetText(defaultMovesText + moves.Count);
             StartCoroutine(displayMoves(moves));
         }
         catch (ApplicationException) {
@@ -69,6 +75,8 @@ public class GameManager : MonoBehaviour {
             
             audioSource.PlayOneShot(tileMovedSound);
             controller.UpdateBoardUI(board);
+            
+            resetMovesLabel();
         }
         catch (ApplicationException) {
             audioSource.PlayOneShot(failSound);
@@ -85,5 +93,9 @@ public class GameManager : MonoBehaviour {
 
             yield return new WaitForSeconds(moveDelay);
         }
+    }
+
+    private void resetMovesLabel() {
+        movesLabel.SetText(defaultMovesText);
     }
 }
