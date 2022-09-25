@@ -147,6 +147,8 @@ public class Board {
         return -1;
     }
 
+    /* This is calculated according to the algorithm and code explained in this website
+     https://www.geeksforgeeks.org/check-instance-8-puzzle-solvable/ */
     private bool isSolvable() {
         int inversionCount = 0;
         for(int i = 0; i < numberOfTiles; i++)
