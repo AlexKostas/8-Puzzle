@@ -99,13 +99,19 @@ public class Board {
     }
 
     public void ShuffleTileOrder() {
+        do {
+            shuffleArray();
+        } while (!isSolvable());
+    }
+
+    private void shuffleArray() {
         var randomNumberGenerator = new System.Random();
-        int n = boardList.Count;  
-        while (n > 1) {  
-            n--;  
-            int k = randomNumberGenerator.Next(n + 1);  
+        int n = boardList.Count;
+        while (n > 1) {
+            n--;
+            int k = randomNumberGenerator.Next(n + 1);
             (boardList[k], boardList[n]) = (boardList[n], boardList[k]);
-        }  
+        }
     }
 
     private void addMoveInHistory(Move move) {
@@ -141,6 +147,16 @@ public class Board {
         return -1;
     }
 
+    private bool isSolvable() {
+        int inversionCount = 0;
+        for(int i = 0; i < numberOfTiles; i++)
+            for(int j = i+1; j < numberOfTiles; j++)
+                if (boardList[i] > 0 && boardList[j] > 0 && boardList[i] > boardList[j])
+                    inversionCount++;
+
+        return inversionCount % 2 == 0;
+    }
+
     private static Board cloneBoard(Board referenceBoard) {
         Board newBoard = new Board(referenceBoard.dimension);
 
@@ -151,14 +167,5 @@ public class Board {
             newBoard.addMoveInHistory(move);
 
         return newBoard;
-    }
-    
-    private int matchCoordinatesToInternalIndex(int row, int col) {
-        Debug.Assert(row >= 0);
-        Debug.Assert(row < dimension);
-        Debug.Assert(col >= 0);
-        Debug.Assert(col < dimension);
-
-        return row * dimension + col;
     }
 }
